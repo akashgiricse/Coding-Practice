@@ -1,0 +1,5 @@
+-- select customer_id, sum(amount) from payment group by customer_id having sum(amount) > 200;
+-- select store_id, count(customer_id) from customer group by store_id having count(customer_id) > 300;
+-- select rating, avg(rental_rate) from film where rating in ('R', 'G', 'PG') group by rating having avg(rental_rate) > 3;
+-- select count(payment_id), customer_id from payment group by customer_id having count(payment_id) > 40 order by count(payment_id) desc;
+-- select avg(rental_duration), rating from film group by rating having avg(rental_duration) > 5;

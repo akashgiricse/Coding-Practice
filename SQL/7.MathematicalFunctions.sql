@@ -1,0 +1,2 @@
+-- select rental_id/customer_id as new_id from payment;
+-- select round(avg(amount),2) from payment;

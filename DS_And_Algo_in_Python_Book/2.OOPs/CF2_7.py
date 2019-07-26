@@ -51,6 +51,33 @@ class CreditCard:
         self._balance -= ammount
 
 
+class PredatoryCreditCard(CreditCard):
+    """An extension to CreditCard that compounds interest and fees"""
+
+    def __init__(self, customer, bank, acnt, limit, apr):
+        """Create a new predatory credit card instance
+            apr: annual percentage rate (e.g. 0.0825 for 8.25% APR)
+        """
+
+        super().__init__(customer, bank, acnt, limit)       # call super constructor
+        self._apr = apr
+
+        def charge(self, price):
+
+            success = super().charge(self, price)
+
+            if not success:
+                self._balance += 5
+            return success
+
+        def process_month(self):
+            """Access monthly interest on outstanding balance"""
+            if self._balance > 0:
+                # if positive balance, covert APR to monthly multiplicative factor
+                monthly_factor = pow(1 + self._apr, 1/12)
+                self._balance *= monthly_factor
+
+
 if __name__ == "__main__":
     wallet = []
     wallet.append(CreditCard('Akash Giri', 'Punjab National Bank',
